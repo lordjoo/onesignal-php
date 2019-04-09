@@ -1,17 +1,33 @@
 {
-    "name": "youssef20000/onesignal-php",
-    "description": "A php library to make you integrate onesignal push notification service easily in your php script",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Youssef Mahmoud",
-            "email": "youssef.afify122@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": "^7.1",
-        "ext-curl": "^7.1"
+  "name": "youssef20000/onesignal-php",
+  "description": "A php library to make you integrate onesignal push notification service easily in your php script",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Youssef Mahmoud",
+      "email": "youssef.afify122@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Youssef\\OneSignal\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^7.1",
+    "ext-curl": "^7.1",
+    "guzzlehttp/guzzle": "^6.2"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Youssef\\OneSignal\\OneSignalServiceProvider"
+      ],
+      "aliases": {
+        "OneSignal": "Youssef\\OneSignal\\OneSignalFacade"
+      }
+    }
+  }
 }
