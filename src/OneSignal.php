@@ -19,7 +19,7 @@ class OneSignal
     protected  $fields;
     public function __construct($appId=null, $apiKey=null)
     {
-        if ($appId)
+        if ($apiKey)
             $this->apiKey = $apiKey;
         else
             $this->apiKey = config('onesignal.api_key');
@@ -32,7 +32,6 @@ class OneSignal
     protected function prepare()
     {
         $app_id = $this->appId;
-        $rest_api_key = $this->apiKey;
         $heading = $this->heading;
         $content = $this->content;
         $fields = array(
