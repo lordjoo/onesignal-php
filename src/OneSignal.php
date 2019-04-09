@@ -26,7 +26,7 @@ class OneSignal
         if ($appId)
             $this->appId = $appId;
         else
-            $this->appId = config("onesignl.app_id");
+            $this->appId = config("onesignal.app_id");
     }
 
     protected function prepare()
