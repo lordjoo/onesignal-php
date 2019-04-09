@@ -75,6 +75,7 @@ class OneSignal
     }
 
     public function  sendToAll(){
+        $this->fields['included_segments'] = array("All");
         $this->prepare();
         return $this->exec();
     }
