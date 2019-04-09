@@ -22,11 +22,11 @@ class OneSignal
         if ($appId)
             $this->apiKey = $apiKey;
         else
-            $this->apiKey = config('onesignal.key');
-        if (appId)
+            $this->apiKey = config('onesignal.api_key');
+        if ($appId)
             $this->appId = $appId;
         else
-            $this->appId = config("onesignl.id");
+            $this->appId = config("onesignl.app_id");
     }
 
     protected function prepare()
