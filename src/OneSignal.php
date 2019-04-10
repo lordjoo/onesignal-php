@@ -17,6 +17,7 @@ class OneSignal
     protected  $apiKey;
     protected  $appId;
     protected  $fields;
+
     public function __construct($appId=null, $apiKey=null)
     {
         if ($apiKey)
@@ -39,9 +40,6 @@ class OneSignal
             'contents' => $content,
             'headings' => $heading
         );
-//        if (!empty($extraParams)){
-//            $fields["data"]=$extraParams;
-//        }
         if (!empty($this->logo)):
             $fields['chrome_web_icon'] = $this->logo;
             $fields['firefox_icon'] = $this->logo;
@@ -74,18 +72,26 @@ class OneSignal
         return json_encode($return);
     }
 
+    /**
+     * send to all subscribed users
+     * @return string: the fully response
+     */
     public function  sendToAll(){
         $this->prepare();
         $this->fields['included_segments'] = array("All");
         return $this->exec();
     }
 
-    public  function  sendToSpecific($userId)
+    /**
+     * @param $userId: the user id that you want to massage
+     * @return string: the fully response
+     */
+    public function sendToSpecific($userId)
     {
         $this->prepare();
         if ($userId != null) {
-            $this->fields['filters'] = array(
-                array(
+            $this->fields['filters'] = array (
+                array (
                     'field' => 'tag',
                     'key' => 'userId',
                     'relation' => '=',
@@ -95,4 +101,15 @@ class OneSignal
             return $this->exec();
         }
     }
+
+    /**
+     * @param $segment: the segments array
+     * @return string: the fully response
+     */
+    public function sendToSegment($segment){
+        $this->prepare();
+        $this->fields['segment'] = $segment;
+        return $this->exec();
+    }
+
 }
