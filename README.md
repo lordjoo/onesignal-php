@@ -39,8 +39,9 @@ Publish the Config File For The Library
 <?php 
 // Require The Outload File For Composeer 
 use Youssef\OneSignal\OneSignal;
-$notification = new OneSignal();
-
+// if not laravel 
+$notification = new OneSignal($appID,$apiKEY);
+// if laravel the appid and apikey will be obtained from the config file
 ?>
 ```
  The Properties to change 
