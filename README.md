@@ -1,8 +1,9 @@
 # OneSignal PHP Library
-###### This PHP Library help You Integrate OneSignal Push Notification Easily in your website , This Library One Support Laravel Framework
+###### This PHP Library help You Integrate OneSignal Push Notification Easily in your website 
+> This Library Supports Laravel Framework
 
 ## Features 
-##### Te Ways You Can Send The Notification
+##### Two Ways You Can Send The Notification
 * Send Notification To all Subscribed Users
 * Send To Specific User 
 * Send To Segment 
