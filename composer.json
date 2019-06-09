@@ -3,6 +3,7 @@
   "description": "A php library to make you integrate onesignal push notification service easily in your php script",
   "type": "library",
   "license": "MIT",
+  "version":"v0.2",
   "authors": [
     {
       "name": "Youssef Mahmoud",
