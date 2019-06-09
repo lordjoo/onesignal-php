@@ -12,7 +12,7 @@ namespace Youssef\OneSignal;
 class OneSignal
 {
 
-    public $heading,$content,$logo,$image,$url,$appUrl,$webUrl,$buttons,$badge,$segment,$filters;
+    public $heading,$content,$logo,$image,$url,$appUrl,$webUrl,$badge,$segment,$filters;
 
     protected  $apiKey;
     protected  $appId;
@@ -32,6 +32,9 @@ class OneSignal
 
     protected function prepare()
     {
+        if (empty($this->heading) || empty($this->content)) {
+            throw new \Exception('Missing Required Properties');
+        }
         $app_id = $this->appId;
         $heading = $this->heading;
         $content = $this->content;
@@ -40,14 +43,23 @@ class OneSignal
             'contents' => $content,
             'headings' => $heading
         );
+        if (!empty($this->url)) {
+            $fields['url'] = $this->url;
+            $fields['web_url'] = $this->url || $this->webUrl;
+        }
+        if (!empty($this->appUrl)) {
+            $fields['app_url'] = $this->appUrl;
+        }
         if (!empty($this->logo)):
             $fields['chrome_web_icon'] = $this->logo;
             $fields['firefox_icon'] = $this->logo;
         endif;
-        if ($this->image != null)
+        if ($this->image != null) {
             $fields['chrome_web_image'] = $this->image;
-        if ($this->badge != null)
+        }
+        if ($this->badge != null) {
             $fields['chrome_web_badge'] = $this->badge;
+        }
         $this->fields = $fields;
     }
 

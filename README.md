@@ -49,11 +49,11 @@ $notification = new OneSignal($appID,$apiKEY);
  
  | Property Name | Is Required | The Value  |
  | ------------ | ------------ | ------------ |
- | $heading |  :tw-2714: | The Title Heading With language code in array  ` $notification->heading = ["en"=>"hello World !","ar"=>"مرحبا بالعالم"] ` |
- | $content |  :tw-2714: | The Notification Body With language code like the `$heading` |
- | $logo    |  :tw-2714: | The Logo Url `String` |
+ | $heading |  :ballot_box_with_check: | The Title Heading With language code in array  ` $notification->heading = ["en"=>"hello World !","ar"=>"مرحبا بالعالم"] ` |
+ | $content |  :ballot_box_with_check: | The Notification Body With language code like the `$heading` |
+ | $logo    |  :ballot_box_with_check: | The Logo Url `String` |
  | $image   |  --  | The Big Image Url `String` |
- | $Url     |  --  | The Action Url That Will Opened `String` |
+ | $url     |  --  | The Action Url That Will Opened `String` |
  | $appUrl  |  --  | If You Have App Url You Want Notification Redirect user To `String` | 
  | $buttons |  --  | The Buttons Array Examples At [The Official Docs](https://documentation.onesignal.com/reference#section-action-buttons "The Official Docs") | 
  | $badge   |  --  | The Notification Bage Icon Url `string` |
@@ -80,8 +80,8 @@ $notification = new OneSignal($appID,$apiKEY);
  ```
 
  ## To Do 
- 
- * [ ] Add Send To Multi Users
- * [ ] Add Unit Test
- * [ ] Handle Exceptions 
- * [ ] Add Send To  Custom Devices  
+ * [ ] Fix Buttons Format Error
+ * [ ] Add Send To Multi Users By IDs
+ * [*] Add Unit Test
+ * [*] Handle Exceptions 
+ * [ ] Add Send To Custom Devices  
