@@ -86,7 +86,7 @@ class OneSignal
         curl_close($ch);
 
         $return["allresponses"] = $response;
-        return json_encode($return);
+        return $return;
     }
 
     /**
@@ -128,12 +128,12 @@ class OneSignal
         $this->fields['included_segments'] = $segment;
         return $this->exec();
     }
-    public function sendToMobile($segment){
+    public function sendToMobile(){
         $this->prepare();
         $this->fields['included_segments'] = array("web");
         return $this->exec();
     }
-    public function sendToWeb($segment){
+    public function sendToWeb(){
         $this->prepare();
         $this->fields['included_segments'] = array("mobile");
         return $this->exec();
