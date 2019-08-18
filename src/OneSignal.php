@@ -125,7 +125,17 @@ class OneSignal
      */
     public function sendToSegment($segment){
         $this->prepare();
-        $this->fields['segment'] = $segment;
+        $this->fields['included_segments'] = $segment;
+        return $this->exec();
+    }
+    public function sendToMobile($segment){
+        $this->prepare();
+        $this->fields['included_segments'] = array("web");
+        return $this->exec();
+    }
+    public function sendToWeb($segment){
+        $this->prepare();
+        $this->fields['included_segments'] = array("mobile");
         return $this->exec();
     }
 
