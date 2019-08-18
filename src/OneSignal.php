@@ -12,7 +12,8 @@ namespace Youssef\OneSignal;
 class OneSignal
 {
 
-    public $heading,$content,$logo,$image,$url,$appUrl,$webUrl,$badge,$segment,$filters;
+    public $heading,$content,$logo,$image,$url,$appUrl,$webUrl,$badge,
+           $segment,$filters;
 
     protected  $apiKey;
     protected  $appId;
@@ -45,10 +46,14 @@ class OneSignal
         );
         if (!empty($this->url)) {
             $fields['url'] = $this->url;
-            $fields['web_url'] = $this->url || $this->webUrl;
         }
-        if (!empty($this->appUrl)) {
-            $fields['app_url'] = $this->appUrl;
+        else{
+            if (!empty($this->webUrl)) {
+                $fields['web_url'] = $this->webUrl;
+            }
+            if (!empty($this->appUrl)) {
+                $fields['app_url'] = $this->appUrl;
+            }
         }
         if (!empty($this->logo)):
             $fields['chrome_web_icon'] = $this->logo;
